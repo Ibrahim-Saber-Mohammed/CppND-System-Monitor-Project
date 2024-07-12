@@ -82,7 +82,6 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
               processes[i].Command().substr(0, window->_maxx - 46).c_str());
   }
 }
-
 void NCursesDisplay::Display(System& system, int n) {
   initscr();      // start ncurses
   noecho();       // do not print input values
@@ -105,6 +104,8 @@ void NCursesDisplay::Display(System& system, int n) {
     wrefresh(process_window);
     refresh();
     std::this_thread::sleep_for(std::chrono::seconds(1));
+    werase(process_window);
+    werase(system_window);
   }
   endwin();
 }

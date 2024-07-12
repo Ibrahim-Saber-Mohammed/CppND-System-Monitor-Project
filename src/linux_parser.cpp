@@ -197,7 +197,7 @@ int LinuxParser::RunningProcesses() {
 // REVIEW: Read and return the command associated with a process
 string LinuxParser::Command(int pid) {
   std::string l_line;
-  std::string l_processCommand{""};
+  std::string l_processCommand{"NA"};
   std::string l_processFilePath{kProcDirectory + std::to_string(pid) +
                                 kCmdlineFilename};
   std::ifstream l_processFileStream(l_processFilePath);
